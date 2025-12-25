@@ -19,20 +19,41 @@
 ## 3. システム構成
 アプリケーションは以下の4つの主要なモジュールで構成されています。
 
-### 3.1. ファイル構成
-- **`main.py`**: エントリーポイント。アプリケーションの初期化、タスクトレイアイコンの設定、グローバルホットキーのバインディングを行います。また、スニペット全体の管理（`SnippetManager`）も担当します。
-- **`capture_tool.py`**: スクリーンキャプチャ機能を提供します。全画面の半透明オーバーレイを表示し、マウスドラッグによる領域選択を処理します。
-- **`snippet_window.py`**: 切り取られた画像を表示する各ウィンドウ（スニペット）の実装です。移動、スケーリング、描画、コンテキストメニューなどの主要なUIロジックが含まれています。
-- **`utils.py`**: 画面解像度の取得やウィンドウ位置の計算など、共通で使用されるユーティリティ関数を提供します。
+### 3.1. ディレクトリ構成
+```text
+.
+├── src/                # ソースコード
+│   ├── main.py         # アプリケーション起動・トレイ管理
+│   ├── capture_tool.py # キャプチャオーバーレイ
+│   ├── snippet_window.py # スニペットウィンドウ UI/ロジック
+│   └── utils.py        # 共通ユーティリティ
+├── assets/             # 静的リソース
+│   └── favicon.ico     # アイコン
+├── tests/              # テスト（将来用）
+├── .gitignore
+├── LICENSE
+├── MANUAL.md
+├── README.md
+├── requirements.txt
+├── SPECIFICATION.md
+└── start_setuna.bat
+```
 
-### 3.2. クラス構成
-- **`SetunaCloneApp` (`main.py`)**: アプリケーション本体。常駐プロセスとして動作し、キャプチャのリクエストをハンドリングします。
-- **`TrayIcon` (`main.py`)**: タスクトレイアイコンの管理クラス。
-- **`SnippetManager` (`main.py`)**: 生成された全てのスニペットウィンドウへの参照を保持し、一括操作（全て閉じる、マージするなど）を可能にします。
-- **`CaptureTool` (`capture_tool.py`)**: キャプチャ画面（オーバーレイ）のクラス。
-- **`SnippetWindow` (`snippet_window.py`)**: 個別の画像ウィンドウクラス。
-- **`GroupWindow` (`snippet_window.py`)**: 複数のスニペットをタブ化したウィンドウクラス。
-- **`SnippetLogicMixin` (`snippet_window.py`)**: `SnippetWindow` と `GroupWindow` で共有されるロジック（保存、コピーなど）を分離したMixinクラス。
+### 3.2. ファイル詳細説明
+- **`src/main.py`**: エントリーポイント。アプリケーションの初期化、タスクトレイアイコンの設定、グローバルホットキーのバインディングを行います。また、スニペット全体の管理（`SnippetManager`）も担当します。
+- **`src/capture_tool.py`**: スクリーンキャプチャ機能を提供します。全画面の半透明オーバーレイを表示し、マウスドラッグによる領域選択を処理します。
+- **`src/snippet_window.py`**: 切り取られた画像を表示する各ウィンドウ（スニペット）の実装です。移動、スケーリング、描画、コンテキストメニューなどの主要なUIロジックが含まれています。
+- **`src/utils.py`**: 画面解像度の取得やウィンドウ位置の計算など、共通で使用されるユーティリティ関数を提供します。
+- **`assets/favicon.ico`**: アプリケーションおよびタスクトレイ用のアイコンファイル。
+
+### 3.3. クラス構成
+- **`SetunaCloneApp` (`src/main.py`)**: アプリケーション本体。常駐プロセスとして動作し、キャプチャのリクエストをハンドリングします。
+- **`TrayIcon` (`src/main.py`)**: タスクトレイアイコンの管理クラス。
+- **`SnippetManager` (`src/main.py`)**: 生成された全てのスニペットウィンドウへの参照を保持し、一括操作（全て閉じる、マージするなど）を可能にします。
+- **`CaptureTool` (`src/capture_tool.py`)**: キャプチャ画面（オーバーレイ）のクラス。
+- **`SnippetWindow` (`src/snippet_window.py`)**: 個別の画像ウィンドウクラス。
+- **`GroupWindow` (`src/snippet_window.py`)**: 複数のスニペットをタブ化したウィンドウクラス。
+- **`SnippetLogicMixin` (`src/snippet_window.py`)**: `SnippetWindow` と `GroupWindow` で共有されるロジック（保存、コピーなど）を分離したMixinクラス。
 
 ## 4. 機能仕様
 

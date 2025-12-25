@@ -23,8 +23,11 @@ class TrayIcon:
     def create_image(self):
         """アイコン画像を生成または読み込みます。"""
         try:
-             # favicon.icoが存在すれば読み込む
-            return Image.open("favicon.ico")
+             # assets/favicon.icoを読み込む
+            import os
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            favicon_path = os.path.join(base_dir, "assets", "favicon.ico")
+            return Image.open(favicon_path)
         except Exception as e:
             print(f"Failed to load favicon.ico: {e}. Using default icon.")
             # シンプルなアイコンを作成（例：青い四角に白い窓）

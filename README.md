@@ -9,13 +9,22 @@ SETUNA2の機能を参考にPythonで開発されたスクリーンキャプチ�
 - タブ付きウィンドウへのグループ化
 - タスクトレイ常駐
 
+## ディレクトリ構成
+```text
+.
+├── src/                # ソースコード (main.py, capture_tool.py etc.)
+├── assets/             # 静的リソース (favicon.ico)
+├── tests/              # テスト
+└── start_setuna.bat    # 起動用バッチファイル
+```
+
 ## 使い方
 詳細は [MANUAL.md](./MANUAL.md) を参照してください。
 
 ### セットアップ
 ```bash
 pip install -r requirements.txt
-python main.py
+python src/main.py
 ```
 
 ### 操作

@@ -7,7 +7,7 @@
 Python環境がインストールされている状態で、以下のコマンドを実行してください。
 
 ```bash
-python main.py
+python src/main.py
 ```
 
 起動すると、タスクトレイにアイコンが表示されます。
