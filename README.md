@@ -1,6 +1,6 @@
 # SetunaCloneAG
-
-SETUNA2の機能を参考にPythonで開発されたスクリーンキャプチャツールです。
+Pythonで作成した、デスクトップ画面を切り取って常に最前面に表示（ピン留め）できるスクリーンキャプチャツールです。
+SETUNA2の機能を参考に開発を行いました。
 
 ![Main Visual](./assets/main_visual.png)
 
