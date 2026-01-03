@@ -1,8 +1,8 @@
 # SetunaCloneAG
 
-![Main Visual](./assets/main_visual.png)
-
 SETUNA2の機能を参考にPythonで開発されたスクリーンキャプチャツールです。
+
+![Main Visual](./assets/main_visual.png)
 
 ## 特徴
 ![Features](./assets/features.png)
